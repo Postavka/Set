@@ -15,23 +15,16 @@ set->add( 'Text1' ).
 set->add( 'Text2' ).
 set->add( 'Text3' ).
 set->add( 'Text4' ).
-write / 'Dlina:'.
-write set->size( ).
-if set->has( 'Text2' ) = abap_true.
-  write / 'Est v spiske'.
-else.
-  write / 'net v spiske'.
-endif.
 
-set->delete( 'Text2' ).
+DATA set2 TYPE REF TO lcl_set.
+CREATE OBJECT set2.
 
-if set->has( 'Text2' ) = abap_true.
-  write / 'Est v spiske'.
-else.
-  write / 'net v spiske'.
+set2->add( 'Text5' ).
+set2->add( 'Text6' ).
+set2->add( 'Text7' ).
+set2->add( 'Text8' ).
+
+set->merge_with( set2 ).
+if set->has( 'text8' ).
+  write / 'aliluia'.
 endif.
-write / 'Dlina:'.
-write set->size( ).
-set->clear( ).
-write / 'Dlina:'.
-write set->size( ).
